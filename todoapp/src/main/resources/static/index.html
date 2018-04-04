@@ -1,0 +1,84 @@
+<html ng-app="todoApp">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body class="container" ng-controller="TodoAppCtrl as ctrl">
+<div><marquee><h1>Emirate Airline TODO App</h1></marquee></div>
+	<div >
+		<form>
+			<div class="form-group">
+				<label for="TaskId"></label> <input type="text"
+					class="form-control" id="exampleInputEmail1"
+					placeholder="Enter Task Description" ng-model="ctrl.userStory.discription">
+			</div>
+			<button ng-click="addTask()" class="btn btn-primary btn-lg">AddTask</button>
+		</form>
+	</div>
+<div>
+<button ng-click="pendingTask()" class="btn btn-primary btn-lg">ShowPendingTask</button>
+<button ng-click="completeTask()" class="btn btn-primary btn-lg">ShowCompleteTask</button>
+</div>
+	<div ng-if="showPendingTask">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Discription</th>
+					<th>Status</th>
+				</tr>
+			</thead>
+			<tbody>
+				  <tr ng-repeat="u in tasks">
+					<td><span ng-bind="u.storyId"></span></td>
+					<td><span ng-bind="u.discription"></span></td>
+					<td><span ng-bind="u.status"></span></td>
+					<td>
+						<button type="button" ng-click="edit(u)">MarkAsComplete</button>
+						<button type="button" ng-click="delete(u.storyId)">Remove</button>
+					</td>
+				</tr>
+			</tbody>
+
+		</table>
+	</div>
+	
+		<div ng-if="showCompleteTask">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Discription</th>
+					<th>Status</th>
+				</tr>
+			</thead>
+			<tbody>
+				  <tr ng-repeat="u in tasks">
+					<td><span ng-bind="u.storyId"></span></td>
+					<td><span ng-bind="u.discription"></span></td>
+					<td><span ng-bind="u.status"></span></td>
+					<td>
+					</td>
+				</tr>
+			</tbody>
+
+		</table>
+	</div>
+
+	<script src="js/app.js"></script>
+	<script src="js/todoAppCtrl.js"></script>
+	<script src="js/todoService.js"></script>
+</body>
+</html>
