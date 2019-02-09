@@ -7,6 +7,7 @@ public class Test {
 
 	public static void main(String[] args) {
 		List<String> empNameList=new ArrayList<>();
+		
 		empNameList.add("Mahendra Kumar");
 		empNameList.add("Alok Ranjan");
 		empNameList.add("Tulsi Das");
